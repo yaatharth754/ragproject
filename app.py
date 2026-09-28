@@ -198,19 +198,22 @@ html, body, [class*="css"] {
 }
 
 /* ---------- File uploader ---------- */
+
 [data-testid="stFileUploaderDropzone"] {
     background: var(--cream-deep) !important;
     border-radius: 16px !important;
     border: 2px dashed rgba(154, 0, 2, 0.3) !important;
     box-shadow:
         inset 5px 5px 10px var(--shadow-dark),
-        inset -5px -5px 10px var(--shadow-light);
+        inset -5px -5px 10px var(--shadow-light) !important;
 }
 
+/* Dropzone text */
 [data-testid="stFileUploaderDropzone"] :is(p, span, small) {
     color: var(--text-main) !important;
 }
 
+/* Browse button */
 [data-testid="stFileUploaderDropzone"] button {
     background: var(--cherry) !important;
     color: var(--on-cherry) !important;
@@ -218,7 +221,7 @@ html, body, [class*="css"] {
     border-radius: 10px !important;
     box-shadow:
         4px 4px 8px var(--shadow-dark),
-        -4px -4px 8px var(--shadow-light);
+        -4px -4px 8px var(--shadow-light) !important;
 }
 
 [data-testid="stFileUploaderDropzone"] button :is(p, span) {
@@ -227,6 +230,60 @@ html, body, [class*="css"] {
 
 [data-testid="stFileUploaderDropzone"] button svg {
     color: var(--on-cherry) !important;
+    fill: currentColor !important;
+}
+
+
+/* =========================================================
+   UPLOADED FILE CHIP
+   ========================================================= */
+
+[data-testid="stFileChip"] {
+    background: var(--cherry-deep) !important;
+    background-color: var(--cherry-deep) !important;
+
+    border: 1px solid rgba(154, 0, 2, 0.20) !important;
+    border-radius: 12px !important;
+
+    box-shadow:
+        4px 4px 8px var(--shadow-dark),
+        -4px -4px 8px var(--shadow-light) !important;
+}
+
+/* File name */
+[data-testid="stFileChip"] [data-testid="stFileChipName"] {
+    color: var(--cream) !important;
+}
+
+/* File name text */
+[data-testid="stFileChip"] [data-testid="stFileChipName"] * {
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+}
+
+/* File size */
+[data-testid="stFileChip"] [data-testid="stFileChipName"] div {
+    color: var(--text-sub) !important;
+    -webkit-text-fill-color: var(--text-sub) !important;
+}
+
+/* File icon */
+[data-testid="stFileChip"] svg {
+    color: var(--cherry) !important;
+    fill: currentColor !important;
+}
+
+/* Delete button */
+[data-testid="stFileChip"] button {
+    background: var(--cream) !important;
+    background-color: var(--cream) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Delete X */
+[data-testid="stFileChip"] button svg {
+    color: var(--cherry) !important;
     fill: currentColor !important;
 }
 
@@ -263,6 +320,68 @@ html, body, [class*="css"] {
 
 [data-testid="stChatMessageAvatarAssistant"] {
     background: var(--cherry-deep) !important;
+}
+/* ---------- Inline code and code blocks in chat ---------- */
+[data-testid="stChatMessage"] code,
+[data-testid="stMarkdownContainer"] code,
+[data-testid="stChatMessage"] pre,
+[data-testid="stChatMessage"] pre code {
+    background: #efe6dd !important;
+    background-color: #efe6dd !important;
+    color: var(--cherry-deep) !important;
+    -webkit-text-fill-color: var(--cherry-deep) !important;
+    border-radius: 6px !important;
+    padding: 0.1rem 0.4rem !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.85em !important;
+    box-shadow:
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px var(--shadow-light) !important;
+}
+
+/* Code blocks (```sql ... ```) need block-level padding instead */
+[data-testid="stChatMessage"] pre {
+    padding: 0.8rem 1rem !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stChatMessage"] pre code {
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+/* ---------- Tables in chat messages ---------- */
+[data-testid="stChatMessage"] table {
+    background: transparent !important;
+    border-collapse: collapse !important;
+    border: none !important;
+}
+
+[data-testid="stChatMessage"] :is(table, thead, tbody, tr, th, td) {
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+    background: transparent !important;
+    border-color: rgba(154, 0, 2, 0.2) !important;
+}
+
+/* Header row */
+[data-testid="stChatMessage"] th {
+    color: var(--cherry) !important;
+    -webkit-text-fill-color: var(--cherry) !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid var(--cherry) !important;
+    padding: 0.6rem 0.8rem !important;
+}
+
+/* Body cells */
+[data-testid="stChatMessage"] td {
+    padding: 0.6rem 0.8rem !important;
+    border-bottom: 1px solid rgba(154, 0, 2, 0.15) !important;
+}
+
+/* Keep cell text readable even when it contains nested elements */
+[data-testid="stChatMessage"] :is(th, td) :is(p, span, div, em, i, a) {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
 }
 
 /* ---------- Expanders and retrieved context ---------- */
